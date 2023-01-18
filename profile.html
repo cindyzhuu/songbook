@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block main %}
+
+<div style="margin: auto;"><img style="width: 100px; border-radius: 50%;" src="{{ user.profilepic }}"></div>
+<br>
+<p style="font-weight: bold">{{ user.username }} <br> posts: {{ num_posts }} </p>
+<hr style="margin: auto; width:70%", size="3", color=black>
+<br>
+
+    <div class="profile-container">
+        <div class="wrapper">
+            <div class="gallery">
+            {% for posts in user_posts %}
+                <div class="gallery-item" tabindex="0">
+                    <img src="{{ posts.image }}" class="gallery-image">
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

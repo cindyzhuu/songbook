@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block main %}
+
+<form action="/" method="post">
+    <div class="mb-3">
+        <select name="rating" id="rating" value="rating" style="border-radius: 8px; border-width: 1px; font-family: avenir">
+            <option value="undefined" selected disabled hidden>Select a rating</option>
+            {% for row in unique_ratings %}
+            <option value="{{ row.rating }}">{{ row.rating }}</option>
+            {% endfor %}
+        </select>
+        <select name="artist" id="artist" value="artist" style="border-radius: 8px; border-width: 1px; font-family: avenir">
+            <option value="undefined" selected disabled hidden>Select an artist</option>
+            {% for row in unique_artists %}
+            <option value="{{ row.artist }}">{{ row.artist }}</option>
+            {% endfor %}
+        </select>
+        <select name="genre" id="genre" value="genre" style="border-radius: 8px; border-width: 1px; font-family: avenir">
+            <option value="undefined" selected disabled hidden>Select a genre</option>
+            {% for row in unique_genres %}
+            <option value="{{ row.genre }}">{{ row.genre }}</option>
+            {% endfor %}
+        </select>
+        <!-- <input type="text" name="user" placeholder="enter user" class="entry-item"> -->
+    </div>
+    <button type="submit" value="submit" class="btn btn-primary" style="width: 40%; background-color: #1DB954; border: #1DB954">Filter</button>
+</form>
+
+<br>
+<br>
+<br>
+<h1 style="font-family: avenir;
+        color: #1DB954;
+        font-size: 30px;
+        font-weight: bold;">Results:</h1>
+
+{% for posts in sorted_posts %}
+<section class="main" style="align-items: center; justify-content: center">
+        <div class="post-col" style="width: 40%">
+
+            <div class="post">
+                <div class="info">
+                    <div class="user">
+                        {% for user in users %}
+                            {% if posts.user_id == user.id %}
+                                <div class="profile-pic"><img src="{{ user.profilepic }}"></div>
+                                <p class="username">{{ user.username }}</p>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <img src="{{ posts.image }}" class="post-image" alt="">
+
+                <div class="post-content">
+                    <div class="reaction-wrapper">
+                        {% for user in users %}
+                            {% if posts.user_id == user.id %}
+                                <div class="caption"><span>{{ user.username }}</span><em>now listening to: {{ posts.song }} by {{ posts.artist }}. rating: {{ posts.rating }}/5.</em> {{ posts.caption }}</div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="post-time" style="text-align: left">{{ posts.time }}</div>
+                </div>
+            </div>
+
+        </div>
+</section>
+
+
+{% endfor %}
+    <br>
+    <p>End of feed.</p>
+
+{% endblock %}

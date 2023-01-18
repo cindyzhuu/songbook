@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <form action="/login" method="post">
+        <p >
+            <input type="text" name="username" placeholder="username" style="width: 25%; border-radius:8px; border-width:1px; font-family:avenir">
+        </p>
+        <p >
+            <input type="text" name="password" placeholder="password" style="width: 25%; border-radius:8px; border-width:1px; font-family: avenir">
+        </p>
+        <button type="submit" value="submit" class="btn btn-primary" style="background-color: #1DB954; border-color: #1DB954">Submit</button>
+    </form>
+{% endblock %}
