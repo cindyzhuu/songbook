@@ -1,13 +1,17 @@
 The following repository is my final project for Harvard's Fall 2022 CS50 course. It uses Flask's built in web server and code.cs50.io, which can be accessed by logging into a github account on code.cs50.io.
 
-HOW TO OPEN:
-- Log into code.cs50.io, click on your terminal window, and execute cd by itself. You should find that your terminal window’s prompt resembles the below: $
-- Download a ZIP called project.zip into your codespace.
-- Execute unzip project.zip to create a folder called project
-- Now type cd songbook followed by Enter to move yourself into (i.e., open) that directory.
+HOW TO OPEN PROJECT:
+- Download project.zip from this repository onto your computer
+- Log into code.cs50.io with your github account
+- Click on your terminal window, and execute "cd" by itself.
+- Execute "mkdir project" to create a directory called project
+- Right click within your codespace to upload project.zip
+- Execute "unzip project.zip -d project" in your terminal to unzip the project files into the project directory
+- Now type "cd project" followed by Enter to move yourself into (i.e., open) that directory.
 - Before getting started, we’ll need to register for an API key. For simplicity, you can use the following: pk_2f61075e186f414f9dc26de683184739
 - In your terminal window, execute: $ export API_KEY=pk_2f61075e186f414f9dc26de683184739
-- Start Flask’s built-in web server (within songbook/): $ flask run
+- Start Flask’s built-in web server (within project/): by executing "$ flask run"
+- Copy paste the link returned in your terminal into a new tab. This should display Songbook!
 
 BACKGROUND AND NAVIGATION
 - Songbook is a social media website where people can rate, share, and post about music.
